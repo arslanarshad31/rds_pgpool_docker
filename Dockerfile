@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-MAINTAINER melvinkcx at gmail dot com
 
 # Fix timezone issue, see: https://bugs.launchpad.net/ubuntu/+source/tzdata/+bug/1554806
 RUN ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
@@ -11,15 +10,15 @@ RUN apt install -y postgresql postgresql-server-dev-10 build-essential curl pyth
 RUN pip install awscli
 
 WORKDIR /tmp
-RUN curl -L -o pgpool-II-4.0.6.tar.gz http://www.pgpool.net/download.php?f=pgpool-II-4.0.6.tar.gz
-RUN tar xf pgpool-II-4.0.6.tar.gz
+RUN curl -L -o pgpool-II-4.2.tar.gz http://www.pgpool.net/download.php?f=pgpool-II-4.2.tar.gz
+RUN tar xf pgpool-II-4.2.tar.gz
 
-WORKDIR /tmp/pgpool-II-4.0.6
+WORKDIR /tmp/pgpool-II-4.2
 RUN ./configure
 RUN make
 RUN make install
 
-WORKDIR /tmp/pgpool-II-4.0.6/src/sql
+WORKDIR /tmp/pgpool-II-4.2/src/sql
 RUN make
 RUN make install
 
