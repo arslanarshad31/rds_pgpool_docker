@@ -14,13 +14,13 @@ jobs:
       - name: Build and push to Docker Hub 
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: melvinkcx/rds_pgpool
+          name: arslanarshad/rds_pgpool
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_names: true
       - name: Update README on Docker Hub
         uses: peter-evans/dockerhub-description@v2.1.0
         env:
-          DOCKERHUB_REPOSITORY: melvinkcx/rds_pgpool
+          DOCKERHUB_REPOSITORY: arslanarshad31/rds_pgpool
           DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
