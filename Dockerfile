@@ -10,15 +10,15 @@ RUN apt install -y postgresql postgresql-server-dev-10 build-essential curl pyth
 RUN pip install awscli
 
 WORKDIR /tmp
-RUN curl -L -o pgpool-II-4.2.tar.gz http://www.pgpool.net/download.php?f=pgpool-II-4.2.tar.gz
-RUN tar xf pgpool-II-4.2.tar.gz
+RUN curl -L -o pgpool-II-4.2.2.tar.gz http://www.pgpool.net/download.php?f=pgpool-II-4.2.2.tar.gz
+RUN tar xf pgpool-II-4.2.2.tar.gz
 
-WORKDIR /tmp/pgpool-II-4.2
+WORKDIR /tmp/pgpool-II-4.2.2
 RUN ./configure
 RUN make
 RUN make install
 
-WORKDIR /tmp/pgpool-II-4.2/src/sql
+WORKDIR /tmp/pgpool-II-4.2.2/src/sql
 RUN make
 RUN make install
 
